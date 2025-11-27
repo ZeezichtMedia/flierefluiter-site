@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import logoImage from '../assets/images/logo.jpeg';
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/accommodatie', label: 'Accommodatie' },
+  { href: '/omgeving', label: 'Omgeving' },
+  { href: '/galerij', label: 'Galerij' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="/" class="block w-[150px]">
+      <Image src={logoImage} alt="B&B De Flierefluiter" class="w-full h-auto mix-blend-multiply" />
+    </a>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex space-x-8">
+      {links.map(link => (
+        <a 
+          href={link.href} 
+          class="text-text hover:text-primary font-medium transition-colors duration-200"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Mobile Menu Button (Implementation can be added later with client-side JS or a checkbox hack) -->
+    <button class="md:hidden text-text focus:outline-none" aria-label="Menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+</header>

@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TextSection from '../components/TextSection.astro';
+
+const image1 = '/images/31131f84-8a21-474a-bccf-6aec1c117192_mw1280.jpeg';
+const image2 = '/images/36eb7706-5c32-4ae4-bb97-03ecb64ce9bf_mw1280.jpeg';
+---
+
+<Layout title="Omgeving - B&B De Flierefluiter">
+  <div class="bg-primary py-12 text-white text-center">
+    <h1 class="text-4xl md:text-5xl font-serif font-bold">De Omgeving</h1>
+  </div>
+
+  <TextSection 
+    title="Bergeijk & De Kempen" 
+    imagePath={image1} 
+    imageAlt="Natuur in de omgeving"
+  >
+    <p class="mb-4">
+      B&B De Flierefluiter ligt in Bergeijk, een van de groenste gemeenten van Europa. De omgeving staat bekend om zijn uitgestrekte bossen, heidevelden en charmante dorpjes. Het is een paradijs voor wandelaars en fietsers.
+    </p>
+    <p>
+      Vanaf onze B&B wandelt of fietst u zo het buitengebied in. Er zijn talloze routes beschikbaar die u langs de mooiste plekjes van de Brabantse Kempen leiden.
+    </p>
+  </TextSection>
+
+  <TextSection 
+    title="Activiteiten & Tips" 
+    imagePath={image2} 
+    imageAlt="Activiteit in de buurt"
+    reversed={true}
+    className="bg-secondary/20"
+  >
+    <p class="mb-4">
+      Als gastheer en -vrouw delen we graag onze favoriete plekjes met u. Of u nu op zoek bent naar een goed restaurant, een bijzonder museum of een stilteplek in de natuur, wij helpen u graag op weg.
+    </p>
+    <ul class="list-disc list-inside space-y-2">
+      <li>Bezoek de Rietveld-gebouwen in Bergeijk</li>
+      <li>Wandel door natuurgebied De Plateaux</li>
+      <li>Fiets de Achtzalighedenroute</li>
+      <li>Geniet van bourgondisch Brabant op de lokale terrassen</li>
+    </ul>
+  </TextSection>
+</Layout>

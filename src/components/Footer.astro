@@ -1,0 +1,39 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-primary text-white py-12 mt-12">
+  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div>
+      <h3 class="text-xl font-serif font-bold mb-4">B&B De Flierefluiter</h3>
+      <p class="text-secondary opacity-90">
+        Rustiek genieten in de Brabantse Kempen. Een plek voor natuurliefhebbers en rustzoekers.
+      </p>
+    </div>
+    
+    <div>
+      <h3 class="text-xl font-serif font-bold mb-4">Contact</h3>
+      <ul class="space-y-2 text-secondary opacity-90">
+        <li>Bucht 69</li>
+        <li>5571 CV Bergeijk</li>
+        <li>Noord-Brabant</li>
+        <li class="mt-4">
+            <a href="mailto:info@deflierefluiter.nl" class="hover:text-white underline">info@deflierefluiter.nl</a>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-serif font-bold mb-4">Snel naar</h3>
+      <ul class="space-y-2">
+        <li><a href="/accommodatie" class="text-secondary hover:text-white transition-colors">Accommodatie</a></li>
+        <li><a href="/omgeving" class="text-secondary hover:text-white transition-colors">Omgeving</a></li>
+        <li><a href="/galerij" class="text-secondary hover:text-white transition-colors">Galerij</a></li>
+        <li><a href="/contact" class="text-secondary hover:text-white transition-colors">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container mx-auto px-4 mt-8 pt-8 border-t border-white/20 text-center text-sm text-secondary opacity-75">
+    &copy; {currentYear} B&B De Flierefluiter. Alle rechten voorbehouden.
+  </div>
+</footer>

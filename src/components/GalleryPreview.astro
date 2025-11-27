@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets';
+import 'photoswipe/style.css';
+
+// Import all images from src/assets/images
+const imageFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,webp}', { eager: true });
+const allImages = Object.values(imageFiles).map(img => img.default);
+
+// Select a subset for the preview (e.g., first 6)
+const previewImages = allImages.slice(0, 6);
+---
+
+<section class="py-16 md:py-24 bg-background">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-12">
+      Sfeerimpressie
+    </h2>
+    
+    <div class="pswp-gallery grid grid-cols-2 md:grid-cols-3 gap-4 mb-12" id="preview-gallery">
+      {previewImages.map((img, index) => (
+        <a 
+          href={img.src} 
+          data-pswp-width={img.width} 
+          data-pswp-height={img.height} 
+          target="_blank"
+          class="block rounded-lg overflow-hidden shadow-md aspect-square"
+        >
+          <Image 
+            src={img} 
+            alt={`Sfeerimpressie ${index + 1}`} 
+            class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+            width={400}
+          />
+        </a>
+      ))}
+    </div>
+
+    <a 
+      href="/galerij" 
+      class="inline-block px-8 py-3 bg-primary hover:bg-primary-light text-white font-medium rounded-md transition-colors duration-300 shadow-lg"
+    >
+      Bekijk alle foto's
+    </a>
+  </div>
+</section>
+
+<script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#preview-gallery',
+    children: 'a',
+    pswpModule: () => import('photoswipe')
+  });
+
+  lightbox.init();
+</script>

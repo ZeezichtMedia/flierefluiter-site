@@ -1,0 +1,63 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  imagePath: string;
+  primaryCtaText?: string;
+  primaryCtaLink?: string;
+  secondaryCtaText?: string;
+  secondaryCtaLink?: string;
+}
+
+const { 
+  title, 
+  subtitle, 
+  imagePath, 
+  primaryCtaText, 
+  primaryCtaLink,
+  secondaryCtaText, 
+  secondaryCtaLink 
+} = Astro.props;
+---
+
+<section class="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src={imagePath} 
+      alt="Hero background" 
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-4 text-center text-white">
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 drop-shadow-lg">
+      {title}
+    </h1>
+    <p class="text-xl md:text-2xl font-light mb-10 max-w-2xl mx-auto drop-shadow-md">
+      {subtitle}
+    </p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      {primaryCtaText && primaryCtaLink && (
+        <a 
+          href={primaryCtaLink} 
+          class="px-8 py-3 bg-primary hover:bg-primary-light text-white font-medium rounded-md transition-colors duration-300 shadow-lg"
+        >
+          {primaryCtaText}
+        </a>
+      )}
+      
+      {secondaryCtaText && secondaryCtaLink && (
+        <a 
+          href={secondaryCtaLink} 
+          class="px-8 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white text-white font-medium rounded-md transition-colors duration-300 shadow-lg"
+        >
+          {secondaryCtaText}
+        </a>
+      )}
+    </div>
+  </div>
+</section>

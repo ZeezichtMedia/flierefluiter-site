@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TextSection from '../components/TextSection.astro';
+
+const image1 = '/images/973d1833-a105-4934-91ef-d0a77527392d_mw1280.webp';
+const image2 = '/images/abf5a49a-360d-4c9e-8cb6-e78f8ec2c306_mw1280.jpeg';
+---
+
+<Layout title="Accommodatie - B&B De Flierefluiter">
+  <div class="bg-primary py-12 text-white text-center">
+    <h1 class="text-4xl md:text-5xl font-serif font-bold">Onze Accommodatie</h1>
+  </div>
+
+  <TextSection 
+    title="Comfort & Privacy" 
+    imagePath={image1} 
+    imageAlt="Interieur B&B"
+  >
+    <p class="mb-4">
+      Onze B&B heeft een oppervlakte van circa 14 m² en is slim en sfeervol ingericht. U beschikt over een eigen entree via een portaal, wat zorgt voor optimale privacy. De ruimte bestaat uit een comfortabel slaapgedeelte met een gezellig zitje.
+    </p>
+    <ul class="list-disc list-inside space-y-2 mb-4">
+      <li>Eigen privé badkamer met douche en toilet</li>
+      <li>Eigen keukenblokje met faciliteiten</li>
+      <li>Gratis WiFi</li>
+      <li>Koffie- en theefaciliteiten</li>
+    </ul>
+  </TextSection>
+
+  <section class="py-16 bg-secondary/20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-serif font-bold text-primary text-center mb-12">Faciliteiten & Services</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-bold mb-3 text-primary">Ontbijt</h3>
+          <p>Royaal en goed verzorgd ontbijt. Bij mooi weer serveren we dit graag buiten op uw terras. Dieetwensen zoals lactose- of glutenvrij zijn op verzoek mogelijk.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-bold mb-3 text-primary">Buitenleven</h3>
+          <p>Geniet van onze bostuin en maak gebruik van het terras. Een heerlijke plek om tot rust te komen tussen het groen.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-bold mb-3 text-primary">Fietsen & Parkeren</h3>
+          <p>Er is een afsluitbare fietsenstalling met oplaadpunt voor elektrische fietsen. Parkeren kan gratis op eigen terrein.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TextSection 
+    title="Praktische Informatie" 
+    imagePath={image2} 
+    imageAlt="Ontbijt of detail"
+    reversed={true}
+  >
+    <div class="space-y-4">
+      <div>
+        <h4 class="font-bold text-primary">In- en uitchecken</h4>
+        <p>Inchecken: 15:00 - 21:00 uur<br>Uitchecken: 08:00 - 11:00 uur</p>
+      </div>
+      
+      <div>
+        <h4 class="font-bold text-primary">Betaling</h4>
+        <p>Betaling kan contant of per bankoverschrijving.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-primary">Huisregels</h4>
+        <p>Niet roken in de gehele B&B.<br>Adults only (alleen voor volwassenen).</p>
+      </div>
+    </div>
+  </TextSection>
+</Layout>
