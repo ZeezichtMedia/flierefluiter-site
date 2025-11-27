@@ -29,11 +29,36 @@ const links = [
       ))}
     </nav>
 
-    <!-- Mobile Menu Button (Implementation can be added later with client-side JS or a checkbox hack) -->
-    <button class="md:hidden text-text focus:outline-none" aria-label="Menu">
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="md:hidden text-text focus:outline-none" aria-label="Menu">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
   </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+    <nav class="flex flex-col p-4 space-y-4">
+      {links.map(link => (
+        <a 
+          href={link.href} 
+          class="text-text hover:text-primary font-medium transition-colors duration-200 block"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  </div>
 </header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>

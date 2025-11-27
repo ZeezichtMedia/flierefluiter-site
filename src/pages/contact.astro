@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 import { MapPin, Mail, Car } from 'lucide-astro';
 import contactImage from '../assets/images/839aadcc-1a1d-4d38-958d-93ee08972ce5_mw1280.jpeg';
 ---
@@ -56,7 +57,7 @@ import contactImage from '../assets/images/839aadcc-1a1d-4d38-958d-93ee08972ce5_
         <!-- Image -->
         <div class="flex-1">
           <div class="rounded-lg overflow-hidden shadow-xl aspect-[4/3]">
-             <img 
+             <Image 
               src={contactImage} 
               alt="Contact B&B De Flierefluiter" 
               class="w-full h-full object-cover"
