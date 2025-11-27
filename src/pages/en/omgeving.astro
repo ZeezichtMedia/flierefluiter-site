@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TextSection from '../../components/TextSection.astro';
+import image1 from '../../assets/images/31131f84-8a21-474a-bccf-6aec1c117192_mw1280.jpeg';
+import image2 from '../../assets/images/36eb7706-5c32-4ae4-bb97-03ecb64ce9bf_mw1280.jpeg';
+---
+
+<Layout title="Surroundings - B&B De Flierefluiter" lang="en">
+  <div class="bg-primary py-12 text-white text-center">
+    <h1 class="text-4xl md:text-5xl font-serif font-bold">The Surroundings</h1>
+  </div>
+
+  <TextSection 
+    title="Bergeijk & The Kempen" 
+    imagePath={image1} 
+    imageAlt="Nature in the area"
+  >
+    <p class="mb-4">
+      B&B De Flierefluiter is located in Bergeijk, one of the greenest municipalities in Europe. The area is known for its extensive forests, heathlands and charming villages. It is a paradise for walkers and cyclists.
+    </p>
+    <p>
+      From our B&B you can walk or cycle straight into the countryside. There are countless routes available that lead you past the most beautiful spots of the Brabant Kempen.
+    </p>
+  </TextSection>
+
+  <TextSection 
+    title="Activities & Tips" 
+    imagePath={image2} 
+    imageAlt="Activity nearby"
+    reversed={true}
+    className="bg-secondary/20"
+  >
+    <p class="mb-4">
+      As hosts, we are happy to share our favorite spots with you. Whether you are looking for a good restaurant, a special museum or a quiet spot in nature, we are happy to help you on your way.
+    </p>
+    <ul class="list-disc list-inside space-y-2">
+      <li>Visit the Rietveld buildings in Bergeijk</li>
+      <li>Walk through the De Plateaux nature reserve</li>
+      <li>Cycle the Eight Beatitudes route</li>
+      <li>Enjoy Burgundian Brabant on the local terraces</li>
+    </ul>
+  </TextSection>
+</Layout>

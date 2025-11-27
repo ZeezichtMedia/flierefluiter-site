@@ -1,5 +1,51 @@
 ---
 const currentYear = new Date().getFullYear();
+
+const { pathname } = Astro.url;
+const lang = pathname.startsWith('/en') ? 'en' : pathname.startsWith('/de') ? 'de' : 'nl';
+
+const translations = {
+  nl: {
+    description: 'Rustiek genieten in de Brabantse Kempen. Een plek voor natuurliefhebbers en rustzoekers.',
+    quickLinks: 'Snel naar',
+    home: 'Home',
+    accommodatie: 'Accommodatie',
+    omgeving: 'Omgeving',
+    galerij: 'Galerij',
+    contact: 'Contact',
+    rights: 'Alle rechten voorbehouden.',
+    websiteBy: 'Website door:'
+  },
+  en: {
+    description: 'Rustic enjoyment in the Brabant Kempen. A place for nature lovers and peace seekers.',
+    quickLinks: 'Quick Links',
+    home: 'Home',
+    accommodatie: 'Accommodation',
+    omgeving: 'Surroundings',
+    galerij: 'Gallery',
+    contact: 'Contact',
+    rights: 'All rights reserved.',
+    websiteBy: 'Website by:'
+  },
+  de: {
+    description: 'Rustikaler Genuss in den Brabanter Kempen. Ein Ort für Naturliebhaber und Ruhesuchende.',
+    quickLinks: 'Schnell zu',
+    home: 'Home',
+    accommodatie: 'Unterkunft',
+    omgeving: 'Umgebung',
+    galerij: 'Galerie',
+    contact: 'Kontakt',
+    rights: 'Alle Rechte vorbehalten.',
+    websiteBy: 'Website von:'
+  }
+};
+
+const t = translations[lang];
+
+const getLink = (path: string) => {
+  if (lang === 'nl') return path;
+  return `/${lang}${path}`;
+};
 ---
 
 <footer class="bg-primary text-white py-12 mt-12">
@@ -7,7 +53,7 @@ const currentYear = new Date().getFullYear();
     <div>
       <h3 class="text-xl font-serif font-bold mb-4">B&B De Flierefluiter</h3>
       <p class="text-secondary opacity-90">
-        Rustiek genieten in de Brabantse Kempen. Een plek voor natuurliefhebbers en rustzoekers.
+        {t.description}
       </p>
     </div>
     
@@ -16,7 +62,7 @@ const currentYear = new Date().getFullYear();
       <ul class="space-y-2 text-secondary opacity-90">
         <li>Bucht 69</li>
         <li>5571 CV Bergeijk</li>
-        <li>Noord-Brabant</li>
+        <li>{lang === 'en' ? 'The Netherlands' : lang === 'de' ? 'Niederlande' : 'Noord-Brabant'}</li>
         <li class="mt-4">
             <a href="mailto:info@deflierefluiter.nl" class="hover:text-white underline">info@deflierefluiter.nl</a>
         </li>
@@ -24,16 +70,16 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <div>
-      <h3 class="text-xl font-serif font-bold mb-4">Snel naar</h3>
+      <h3 class="text-xl font-serif font-bold mb-4">{t.quickLinks}</h3>
       <ul class="space-y-2">
-        <li><a href="/accommodatie" class="text-secondary hover:text-white transition-colors">Accommodatie</a></li>
-        <li><a href="/omgeving" class="text-secondary hover:text-white transition-colors">Omgeving</a></li>
-        <li><a href="/galerij" class="text-secondary hover:text-white transition-colors">Galerij</a></li>
-        <li><a href="/contact" class="text-secondary hover:text-white transition-colors">Contact</a></li>
+        <li><a href={getLink('/accommodatie')} class="text-secondary hover:text-white transition-colors">{t.accommodatie}</a></li>
+        <li><a href={getLink('/omgeving')} class="text-secondary hover:text-white transition-colors">{t.omgeving}</a></li>
+        <li><a href={getLink('/galerij')} class="text-secondary hover:text-white transition-colors">{t.galerij}</a></li>
+        <li><a href={getLink('/contact')} class="text-secondary hover:text-white transition-colors">{t.contact}</a></li>
       </ul>
     </div>
   </div>
   <div class="container mx-auto px-4 mt-8 pt-8 border-t border-white/20 text-center text-sm text-secondary opacity-75">
-    &copy; {currentYear} B&B De Flierefluiter. Alle rechten voorbehouden. | Website door: <a href="https://zee-zicht.nl" target="_blank" rel="noopener noreferrer" class="hover:text-white underline">Zeezicht</a>
+    &copy; {currentYear} B&B De Flierefluiter. {t.rights} | {t.websiteBy} <a href="https://zee-zicht.nl" target="_blank" rel="noopener noreferrer" class="hover:text-white underline">Zeezicht</a>
   </div>
 </footer>

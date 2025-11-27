@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import 'photoswipe/style.css';
+
+// Import all images from src/assets/images
+const imageFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,webp}', { eager: true });
+const images = Object.values(imageFiles).map(img => img.default);
+---
+
+<Layout title="Galerie - B&B De Flierefluiter" lang="de">
+  <div class="bg-primary py-12 text-white text-center">
+    <h1 class="text-4xl md:text-5xl font-serif font-bold">Fotogalerie</h1>
+  </div>
+
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="pswp-gallery grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="my-gallery">
+        {images.map((img, index) => (
+          <a 
+            href={img.src} 
+            data-pswp-width={img.width} 
+            data-pswp-height={img.height} 
+            target="_blank"
+            class="block rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 aspect-[4/3]"
+          >
+            <Image 
+              src={img} 
+              alt={`Stimmungsimpression B&B De Flierefluiter ${index + 1}`}
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              width={600}
+            />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#my-gallery',
+    children: 'a',
+    pswpModule: () => import('photoswipe')
+  });
+
+  lightbox.init();
+</script>

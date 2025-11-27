@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TextSection from '../../components/TextSection.astro';
+import image1 from '../../assets/images/973d1833-a105-4934-91ef-d0a77527392d_mw1280.webp';
+import image2 from '../../assets/images/abf5a49a-360d-4c9e-8cb6-e78f8ec2c306_mw1280.jpeg';
+---
+
+<Layout title="Accommodation - B&B De Flierefluiter" lang="en">
+  <div class="bg-primary py-12 text-white text-center">
+    <h1 class="text-4xl md:text-5xl font-serif font-bold">Our Accommodation</h1>
+  </div>
+
+  <TextSection 
+    title="Comfort & Privacy" 
+    imagePath={image1} 
+    imageAlt="B&B Interior"
+  >
+    <p class="mb-4">
+      Our B&B has an area of approximately 14 m² and is smartly and attractively furnished. You have your own entrance via a portal, which ensures optimal privacy. The space consists of a comfortable sleeping area with a cozy seating area.
+    </p>
+    <ul class="list-disc list-inside space-y-2 mb-4">
+      <li>Private bathroom with shower and toilet</li>
+      <li>Private kitchenette with facilities</li>
+      <li>Free WiFi</li>
+      <li>Coffee and tea facilities</li>
+    </ul>
+  </TextSection>
+
+  <section class="py-16 bg-secondary/20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-serif font-bold text-primary text-center mb-12">Facilities & Services</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-bold mb-3 text-primary">Breakfast</h3>
+          <p>Generous and well-cared for breakfast. When the weather is nice, we are happy to serve this outside on your terrace. Dietary requirements such as lactose or gluten-free are possible on request.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-bold mb-3 text-primary">Outdoor Life</h3>
+          <p>Enjoy our forest garden and use the terrace. A wonderful place to relax among the greenery.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-bold mb-3 text-primary">Bicycles & Parking</h3>
+          <p>There is a lockable bicycle shed with a charging point for electric bicycles. Parking is free on site.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TextSection 
+    title="Practical Information" 
+    imagePath={image2} 
+    imageAlt="Breakfast or detail"
+    reversed={true}
+  >
+    <div class="space-y-4">
+      <div>
+        <h4 class="font-bold text-primary">Check-in and check-out</h4>
+        <p>Check-in: 15:00 - 21:00<br>Check-out: 08:00 - 11:00</p>
+      </div>
+      
+      <div>
+        <h4 class="font-bold text-primary">Payment</h4>
+        <p>Payment can be made in cash or by bank transfer.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-primary">House Rules</h4>
+        <p>No smoking in the entire B&B.<br>Adults only.</p>
+      </div>
+    </div>
+  </TextSection>
+</Layout>

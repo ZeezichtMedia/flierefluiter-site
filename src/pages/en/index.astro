@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Features from '../../components/Features.astro';
+import TextSection from '../../components/TextSection.astro';
+import GalleryPreview from '../../components/GalleryPreview.astro';
+import { Leaf, ShieldCheck, Coffee } from 'lucide-astro';
+import heroImage from '../../assets/images/34f0c313-052c-4101-925e-95678110ee30_mw1280.jpeg';
+import sfeerImage from '../../assets/images/17cb3342-a943-4f4b-a1cb-e3d5247602dd_mw1280.jpeg';
+import tuinImage from '../../assets/images/75b19d46-276b-4a03-92e7-a8ce733c17f3_mw1280.jpeg';
+
+const features = [
+  {
+    title: 'Nature & Peace',
+    description: 'Located on the edge of the countryside, with a direct view of a forest garden full of birds and squirrels.',
+    icon: Leaf
+  },
+  {
+    title: 'Privacy & Comfort',
+    description: 'Detached guesthouse with private entrance, private terrace and all modern amenities.',
+    icon: ShieldCheck
+  },
+  {
+    title: 'Generous Breakfast',
+    description: 'Enjoy a extensive breakfast, outside on your own terrace when the weather is nice.',
+    icon: Coffee
+  }
+];
+---
+
+<Layout title="B&B De Flierefluiter - Rustic enjoyment in Bergeijk" lang="en">
+  <Hero 
+    title="Welcome to De Flierefluiter"
+    subtitle="An oasis of peace in the Brabant Kempen, where nature and comfort meet."
+    imagePath={heroImage}
+    primaryCtaText="View Accommodation"
+    primaryCtaLink="/en/accommodatie"
+    secondaryCtaText="Contact Us"
+    secondaryCtaLink="/en/contact"
+  />
+
+  <TextSection 
+    title="Get away from it all" 
+    imagePath={sfeerImage} 
+    imageAlt="Atmospheric room"
+  >
+    <p class="mb-4">
+      B&B De Flierefluiter is a small-scale Bed & Breakfast, detached from the main house, where privacy and peace are central. Our B&B is the ideal place for nature lovers, peace seekers and romantics who want to escape the daily grind.
+    </p>
+    <p>
+      From your comfortable bed you look directly out onto our beautiful forest garden. It is not uncommon to be woken up in the morning by the singing of birds and squirrels running through the trees. A unique experience that connects you directly with nature.
+    </p>
+  </TextSection>
+
+  <Features 
+    title="Why De Flierefluiter?" 
+    features={features} 
+  />
+
+  <TextSection 
+    title="Discover the Kempen" 
+    imagePath={tuinImage} 
+    imageAlt="Garden and surroundings"
+    reversed={true}
+    className="bg-secondary/20"
+  >
+    <p class="mb-4">
+      Located in Bergeijk, our B&B forms the perfect base for beautiful walking and cycling tours through the Brabant Kempen. Whether you like long forest walks or cycling tours through picturesque villages, you will find it all here.
+    </p>
+    <p class="mb-6">
+      We are an "Adults Only" accommodation, which means you are assured of a quiet stay without children. Perfect for a romantic weekend away or a solo retreat.
+    </p>
+    <a href="/en/omgeving" class="text-primary font-bold hover:underline">Read more about the surroundings &rarr;</a>
+  </TextSection>
+
+  <GalleryPreview 
+    title="Atmosphere Impression"
+    buttonText="View all photos"
+    buttonLink="/en/galerij"
+  />
+</Layout>

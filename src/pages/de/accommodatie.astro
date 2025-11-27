@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TextSection from '../../components/TextSection.astro';
+import image1 from '../../assets/images/973d1833-a105-4934-91ef-d0a77527392d_mw1280.webp';
+import image2 from '../../assets/images/abf5a49a-360d-4c9e-8cb6-e78f8ec2c306_mw1280.jpeg';
+---
+
+<Layout title="Unterkunft - B&B De Flierefluiter" lang="de">
+  <div class="bg-primary py-12 text-white text-center">
+    <h1 class="text-4xl md:text-5xl font-serif font-bold">Unsere Unterkunft</h1>
+  </div>
+
+  <TextSection 
+    title="Komfort & Privatsphäre" 
+    imagePath={image1} 
+    imageAlt="B&B Interieur"
+  >
+    <p class="mb-4">
+      Unser B&B hat eine Fläche von ca. 14 m² und ist clever und stimmungsvoll eingerichtet. Sie verfügen über einen eigenen Eingang über ein Portal, was für optimale Privatsphäre sorgt. Der Raum besteht aus einem komfortablen Schlafbereich mit einer gemütlichen Sitzecke.
+    </p>
+    <ul class="list-disc list-inside space-y-2 mb-4">
+      <li>Eigenes Badezimmer mit Dusche und WC</li>
+      <li>Eigene Küchenzeile mit Ausstattung</li>
+      <li>Kostenloses WLAN</li>
+      <li>Kaffee- und Teezubehör</li>
+    </ul>
+  </TextSection>
+
+  <section class="py-16 bg-secondary/20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-serif font-bold text-primary text-center mb-12">Einrichtungen & Service</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-bold mb-3 text-primary">Frühstück</h3>
+          <p>Reichhaltiges und gepflegtes Frühstück. Bei schönem Wetter servieren wir dieses gerne draußen auf Ihrer Terrasse. Diätwünsche wie laktose- oder glutenfrei sind auf Anfrage möglich.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-bold mb-3 text-primary">Leben im Freien</h3>
+          <p>Genießen Sie unseren Waldgarten und nutzen Sie die Terrasse. Ein herrlicher Ort, um im Grünen zur Ruhe zu kommen.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-bold mb-3 text-primary">Fahrräder & Parken</h3>
+          <p>Es gibt einen abschließbaren Fahrradschuppen mit Ladestation für Elektrofahrräder. Parken ist kostenlos auf dem eigenen Gelände möglich.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TextSection 
+    title="Praktische Informationen" 
+    imagePath={image2} 
+    imageAlt="Frühstück oder Detail"
+    reversed={true}
+  >
+    <div class="space-y-4">
+      <div>
+        <h4 class="font-bold text-primary">An- und Abreise</h4>
+        <p>Anreise: 15:00 - 21:00 Uhr<br>Abreise: 08:00 - 11:00 Uhr</p>
+      </div>
+      
+      <div>
+        <h4 class="font-bold text-primary">Bezahlung</h4>
+        <p>Die Bezahlung kann bar oder per Banküberweisung erfolgen.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-primary">Hausregeln</h4>
+        <p>Rauchen im gesamten B&B verboten.<br>Adults only (nur für Erwachsene).</p>
+      </div>
+    </div>
+  </TextSection>
+</Layout>

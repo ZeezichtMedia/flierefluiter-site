@@ -2,13 +2,56 @@
 import { Image } from 'astro:assets';
 import logoImage from '../assets/images/logo.jpeg';
 
+const { pathname } = Astro.url;
+const lang = pathname.startsWith('/en') ? 'en' : pathname.startsWith('/de') ? 'de' : 'nl';
+
+const translations = {
+  nl: {
+    home: 'Home',
+    accommodatie: 'Accommodatie',
+    omgeving: 'Omgeving',
+    galerij: 'Galerij',
+    contact: 'Contact'
+  },
+  en: {
+    home: 'Home',
+    accommodatie: 'Accommodation',
+    omgeving: 'Surroundings',
+    galerij: 'Gallery',
+    contact: 'Contact'
+  },
+  de: {
+    home: 'Home',
+    accommodatie: 'Unterkunft',
+    omgeving: 'Umgebung',
+    galerij: 'Galerie',
+    contact: 'Kontakt'
+  }
+};
+
+const t = translations[lang];
+
+const getLink = (path: string) => {
+  if (lang === 'nl') return path;
+  return `/${lang}${path}`;
+};
+
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/accommodatie', label: 'Accommodatie' },
-  { href: '/omgeving', label: 'Omgeving' },
-  { href: '/galerij', label: 'Galerij' },
-  { href: '/contact', label: 'Contact' },
+  { href: getLink('/'), label: t.home },
+  { href: getLink('/accommodatie'), label: t.accommodatie },
+  { href: getLink('/omgeving'), label: t.omgeving },
+  { href: getLink('/galerij'), label: t.galerij },
+  { href: getLink('/contact'), label: t.contact },
 ];
+
+const getLangLink = (targetLang: string) => {
+  let cleanPath = pathname;
+  if (lang !== 'nl') {
+    cleanPath = pathname.replace(`/${lang}`, '') || '/';
+  }
+  if (targetLang === 'nl') return cleanPath;
+  return `/${targetLang}${cleanPath === '/' ? '' : cleanPath}`;
+};
 ---
 
 <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
@@ -18,7 +61,7 @@ const links = [
     </a>
 
     <!-- Desktop Menu -->
-    <nav class="hidden md:flex space-x-8">
+    <nav class="hidden md:flex items-center space-x-8">
       {links.map(link => (
         <a 
           href={link.href} 
@@ -27,6 +70,13 @@ const links = [
           {link.label}
         </a>
       ))}
+      
+      <!-- Language Switcher -->
+      <div class="flex items-center space-x-2 border-l pl-4 border-gray-300">
+        <a href={getLangLink('nl')} class={`font-medium ${lang === 'nl' ? 'text-primary' : 'text-text/60 hover:text-primary'}`}>NL</a>
+        <a href={getLangLink('en')} class={`font-medium ${lang === 'en' ? 'text-primary' : 'text-text/60 hover:text-primary'}`}>EN</a>
+        <a href={getLangLink('de')} class={`font-medium ${lang === 'de' ? 'text-primary' : 'text-text/60 hover:text-primary'}`}>DE</a>
+      </div>
     </nav>
 
     <!-- Mobile Menu Button -->
@@ -48,6 +98,13 @@ const links = [
           {link.label}
         </a>
       ))}
+      
+      <!-- Mobile Language Switcher -->
+      <div class="flex items-center space-x-4 pt-4 border-t border-gray-100">
+        <a href={getLangLink('nl')} class={`font-medium ${lang === 'nl' ? 'text-primary' : 'text-text/60'}`}>NL</a>
+        <a href={getLangLink('en')} class={`font-medium ${lang === 'en' ? 'text-primary' : 'text-text/60'}`}>EN</a>
+        <a href={getLangLink('de')} class={`font-medium ${lang === 'de' ? 'text-primary' : 'text-text/60'}`}>DE</a>
+      </div>
     </nav>
   </div>
 </header>
