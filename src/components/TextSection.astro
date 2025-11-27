@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
   title?: string;
-  imagePath?: string;
+  imagePath?: ImageMetadata;
   imageAlt?: string;
   reversed?: boolean;
   className?: string;
@@ -30,7 +32,7 @@ const { title, imagePath, imageAlt = "", reversed = false, className = "" } = As
       {imagePath && (
         <div class="flex-1 w-full">
           <div class="relative rounded-lg overflow-hidden shadow-xl aspect-[4/3]">
-            <img 
+            <Image 
               src={imagePath} 
               alt={imageAlt} 
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"

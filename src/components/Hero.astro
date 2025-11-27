@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
   title: string;
   subtitle: string;
-  imagePath: string;
+  imagePath: ImageMetadata;
   primaryCtaText?: string;
   primaryCtaLink?: string;
   secondaryCtaText?: string;
@@ -23,7 +25,7 @@ const {
 <section class="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
   <!-- Background Image with Overlay -->
   <div class="absolute inset-0 z-0">
-    <img 
+    <Image 
       src={imagePath} 
       alt="Hero background" 
       class="w-full h-full object-cover"
